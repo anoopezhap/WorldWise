@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
 import HomePage from "./pages/HomePage";
-import PageNotFount from "./pages/PageNotFount";
+import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 
@@ -15,9 +15,14 @@ function App() {
         <Route path="product" element={<Product />} />
         <Route path="login" element={<Login />} />
 
-        <Route path="app" element={<AppLayout />} />
+        <Route path="app" element={<AppLayout />}>
+          <Route index element={<p>list of cities</p>} />
+          <Route path="cities" element={<p>cities</p>} />
+          <Route path="countries" element={<p>Countries</p>} />
+          <Route path="form" element={<p>form</p>} />
+        </Route>
 
-        <Route path="*" element={<PageNotFount />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
